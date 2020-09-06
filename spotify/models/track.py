@@ -45,7 +45,7 @@ class Track(URIBase):  # pylint: disable=too-many-instance-attributes
         The available markets for the Track.
     """
 
-    def __init__(self, client, data):
+    def __init__(self, client, data, album=None):
         from .album import Album
 
         self.__client = client
@@ -55,7 +55,7 @@ class Track(URIBase):  # pylint: disable=too-many-instance-attributes
         )
         self.artist = artists[-1] if artists else None
 
-        album_ = data.pop("album", None)
+        album_ = data.pop("album", album)
         self.album = album = album_ and Album(client, album_)
 
         self.id = data.pop("id", None)  # pylint: disable=invalid-name
