@@ -176,7 +176,7 @@ class Playlist(URIBase, AsyncIterable):  # pylint: disable=too-many-instance-att
         self.__tracks = tracks
 
         self.total_tracks = (
-            len(tracks) if tracks is not None else data["tracks"]["total"]
+            data["tracks"]["total"]
         )
 
     # Track retrieval
